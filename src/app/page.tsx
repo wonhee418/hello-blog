@@ -9,11 +9,18 @@ export default async function Main() {
   return (
     <>
       <Hydrate state={dehydrate(getQueryClient())}>
-        <div className="border p-5">
-          <input type="search" placeholder="Search" />
-        </div>
-        <div className="flex gap-14">
+        <div className="flex gap-14 bg-white">
           <div className="flex flex-col flex-3 gap-6">
+            <div className="py-4 border-b flex gap-2 items-center justify-between">
+              <div className=" flex rounded-full p-2 gap-2">
+                <span className=" border rounded-full py-2 px-4 bg-white">New Feed</span>
+                <span className=" border rounded-full p-2 px-4 text-sub_n">Favorite</span>
+                <span className=" border rounded-full p-2 px-4 text-sub_n">Popular</span>
+              </div>
+              <div className="border p-2">
+                <input type="search" placeholder="Search" />
+              </div>
+            </div>
             {Array.from({ length: 5 }, (_, index) => (
               <PostItem
                 key={index}

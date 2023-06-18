@@ -8,7 +8,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primaryColor: '#f0e4d3',
+        primary: '#f0e4d3',
+        sub_n: '#76a1b3',
+        sub_p: '#ada8b6',
+        sub_t: '#f6f3f0',
       },
       flex: {
         "2": '2 2 0%',
