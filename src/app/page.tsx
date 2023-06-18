@@ -17,8 +17,12 @@ export default async function Main() {
                 <span className=" border rounded-full p-2 px-4 text-sub_n">Favorite</span>
                 <span className=" border rounded-full p-2 px-4 text-sub_n">Popular</span>
               </div>
-              <div className="border p-2">
-                <input type="search" placeholder="Search" />
+              <div className="">
+                <input
+                  type="search"
+                  placeholder="Search"
+                  className="py-2 px-4 border border-sub_n rounded-full placeholder:text-sub_n"
+                />
               </div>
             </div>
             {Array.from({ length: 5 }, (_, index) => (
