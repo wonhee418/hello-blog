@@ -34,7 +34,7 @@ export default async function Main() {
                 user={'name'}
                 createdAt={'2023/06/18'}
                 userInfo={'userinfo'}
-                title={'title'}
+                title={'Lorem ipsum dolor sit amet consectetur adipisicing elit.'}
                 desc={
                   'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint id maxime explicabo similique obcaecati soluta iure nihil voluptatem quo in, facilis laudantium at nulla quis tenetur omnis. Architecto, ipsam. Eum?'
                 }

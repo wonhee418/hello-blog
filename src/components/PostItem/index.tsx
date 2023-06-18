@@ -12,8 +12,12 @@ type Post = {
 
 const PostItem: FC<Post> = ({ profileImg, user, createdAt, userInfo, title, desc, thumbnail }) => {
   return (
-    <div className="item flex gap-16 p-4 items-center  border-b border-primaryColor">
+    <div className="item flex gap-16 px-4 pb-6 items-center  border-b border-sub_n">
       <div className="flex flex-3 flex-col  gap-4">
+        <div className="flex flex-col  gap-4">
+          <h1 className=" text-heading overflow-hidden text-ellipsis line-clamp-1">{title}</h1>
+          <div className=" text-body overflow-hidden text-ellipsis line-clamp-3">{desc}</div>
+        </div>
         <div className="flex flex-col">
           <div className="flex items-center gap-3">
             <div className=" max-w-[40px] rounded-[50px]">
@@ -28,11 +32,8 @@ const PostItem: FC<Post> = ({ profileImg, user, createdAt, userInfo, title, desc
             </div>
           </div>
         </div>
-        <div className="flex flex-col  gap-4">
-          <h1 className=" text-heading">{title}</h1>
-          <div className=" text-body">{desc}</div>
-        </div>
       </div>
+
       <div className="thumbnail flex-1">
         <img src={thumbnail} alt="thumbnail" />
       </div>
