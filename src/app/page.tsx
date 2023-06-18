@@ -39,6 +39,7 @@ export default async function Main() {
                   'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint id maxime explicabo similique obcaecati soluta iure nihil voluptatem quo in, facilis laudantium at nulla quis tenetur omnis. Architecto, ipsam. Eum?'
                 }
                 thumbnail={'https://blog.kakaocdn.net/dn/bLQ4LU/btqMr5tAGng/p2c9xyckCA0AnVRM9GqzF1/img.jpg'}
+                href={`/detail/${index}`}
               />
             ))}
           </div>
