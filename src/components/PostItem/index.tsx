@@ -20,10 +20,10 @@ const PostItem: FC<Post> = ({ profileImg, user, createdAt, userInfo, title, desc
         </div>
         <div className="flex flex-col">
           <div className="flex items-center gap-3">
-            <div className=" max-w-[40px] rounded-[50px]">
+            <div className=" max-w-[30px] rounded-[50px]">
               <img src={profileImg} alt="userprofileImg" />
             </div>
-            <div className="info flex flex-col">
+            <div className="info flex flex-col text-detail_s">
               <div className="flex">
                 <span>{user}</span>
                 <span>{createdAt}</span>

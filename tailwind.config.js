@@ -31,7 +31,8 @@ module.exports = {
       fontSize: {
         heading: ['30px', { fontWeight: 700, lineHeight: '1.3' }],
         body: ['18px', { fontWeight: 400, lineHeight: '1.3' }],
-        detail: ['16px', { fontWeight: 300, lineHeight: '1.3' }]
+        detail: ['16px', { fontWeight: 300, lineHeight: '1.3' }],
+        detail_s: ['14px', { fontWeight: 400, lineHeight: '1.3' }]
       }
     },
   },
