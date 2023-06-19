@@ -3,7 +3,7 @@ import { Hydrate } from '@tanstack/react-query';
 
 import { getQueryClient } from '@/utils/reactQuery';
 import PostItem from '@/components/PostItem';
-import Aside from '@/components/Aside';
+import StandardAside from '@/components/Aside/standardAside';
 
 export default async function Main() {
   return (
@@ -43,7 +43,7 @@ export default async function Main() {
               />
             ))}
           </div>
-          <Aside />
+          <StandardAside />
         </div>
       </Hydrate>
     </>
