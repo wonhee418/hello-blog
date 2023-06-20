@@ -3,7 +3,7 @@ import { Hydrate } from '@tanstack/react-query';
 
 import { getQueryClient } from '@/utils/reactQuery';
 import PostItem from '@/components/PostItem';
-import StandardAside from '@/components/Aside/standardAside';
+import StandardAside from '@/components/Aside/StandardAside';
 
 export default async function Main() {
   return (

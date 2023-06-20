@@ -2,7 +2,7 @@ import { dehydrate } from '@tanstack/query-core';
 import { Hydrate } from '@tanstack/react-query';
 
 import { getQueryClient } from '@/utils/reactQuery';
-import DetailAside from '@/components/Aside/detailAside';
+import DetailAside from '@/components/Aside/DetailAside';
 
 export default function Detail() {
   return (
