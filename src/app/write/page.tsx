@@ -18,6 +18,12 @@ export default function Write() {
   return (
     <Hydrate state={dehydrate(getQueryClient())}>
       <div>
+        <div>
+          <input type="text" placeholder="제목을 입력하세요" />
+        </div>
+        <div>
+          <input type="text" placeholder="태그를 입력하세요" />
+        </div>
         <ToastUIEditor initialValue="" onChange={handleChange} />
       </div>
     </Hydrate>
