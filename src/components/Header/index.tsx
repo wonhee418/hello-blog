@@ -1,17 +1,18 @@
+'use client';
+
+import NavBar from './NavBar';
+import UserMenu from './UserMenu';
+import GuestMenu from './GuestMenu';
+import { useState } from 'react';
+
 const Header = () => {
+  const [authState, setAuthState] = useState(false);
+
   return (
     <div className=" border-b border-b-primaryColor flex justify-between py-6  px-6 bg-white">
-      <div className="flex-1">FBB</div>
-      <div className="flex flex-1 items-center justify-center gap-10">
-        <span>Feed</span>
-        <span>favorite</span>
-        <span>Popular</span>
-      </div>
-      <div className="flex gap-4 flex-1 justify-end">
-        <div>알림</div>
-        <div>프로필</div>
-        <button>write</button>
-      </div>
+      <div className="flex-1">Hello</div>
+      <NavBar />
+      <div className="flex gap-4 flex-1 justify-end">{authState ? <UserMenu /> : <GuestMenu />}</div>
     </div>
   );
 };
