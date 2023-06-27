@@ -30,3 +30,7 @@ body {
 body::-webkit-scrollbar {
   display: none;
 }
+
+.accent_text {
+  @apply font-medium text-[#76a1b3] border-b border-b-[#76a1b3];
+}
