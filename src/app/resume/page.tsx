@@ -15,14 +15,15 @@ type info = {
 
 export default function Resume() {
   const info: info[] = [
-    { heading: '📫Email', desc: 'cheeky4@naver.com' },
-    { heading: '📞Phone', desc: '010-9102-3802' },
-    { heading: '😺Github', desc: 'wonhee418', href: "'https://github.com/wonhee418" },
+    { heading: '🪪 Name', desc: '김원희 / Wonhee Kim' },
+    { heading: '📬 Email', desc: 'cheeky4@naver.com' },
+    { heading: '📞 Phone', desc: '010-9102-3802' },
+    { heading: '😺 Github', desc: 'wonhee418', href: "'https://github.com/wonhee418" },
   ];
 
   return (
     <Hydrate state={dehydrate(getQueryClient())}>
-      <div className="flex pt-12 gap-10 h-[2000px] px-5">
+      <div className="flex pt-12 gap-20 h-[2000px] px-5">
         <div className="flex-1 flex self-start flex-col max-w-[260px] w-full sticky top-10">
           <div className="flex flex-col gap-10 p-8 shadow-card rounded-3xl">
             <div className=" rounded-full overflow-hidden">
@@ -40,11 +41,11 @@ export default function Resume() {
             </div>
           </div>
         </div>
+
         <div className="flex-3">
           <div className=" flex flex-col gap-14">
             <div className="flex flex-col gap-1">
-              <h1 className=" text-body font-bold">FrontEnd Developer</h1>
-              <div className="text-heading">김원희 / Wonhee Kim</div>
+              <h1 className=" text-heading font-bold">FrontEnd Developer</h1>
               <div>현재에 만족하지 않고 더 나은 버전으로 발전하는 프론트엔드 개발자입니다.</div>
             </div>
             <div>
@@ -72,6 +73,24 @@ export default function Resume() {
                   정한 로드맵을 밟아가며 남들과 다르더라도 탄탄한 개발자가 되기 위해 노력할 것입니다.
                 </p>
               </div>
+            </div>
+            <div>
+              <h2 className="text-heading_sub border-b-2 pb-2">🛠️ Tech Stack - 기술 스택</h2>
+            </div>
+            <div>
+              <h2 className="text-heading_sub border-b-2 pb-2">📂 Projects - 프로젝트</h2>
+            </div>
+            <div>
+              <h2 className="text-heading_sub border-b-2 pb-2">📋 경력 - Work Experience</h2>
+            </div>
+            <div>
+              <h2 className="text-heading_sub border-b-2 pb-2">🎓 교육 - Education</h2>
+            </div>
+            <div>
+              <h2 className="text-heading_sub border-b-2 pb-2">💳 자격증(Certificate)</h2>
+            </div>
+            <div>
+              <h2 className="text-heading_sub border-b-2 pb-2">🪖 병역(Military)</h2>
             </div>
           </div>
         </div>
