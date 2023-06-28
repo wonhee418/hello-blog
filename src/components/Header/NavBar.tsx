@@ -3,9 +3,11 @@ import Link from 'next/link';
 
 const NavBar = () => {
   return (
-    <div className="flex flex-1 items-center justify-center gap-10">
+    <div className="flex flex-2 items-center justify-center gap-4">
       {GNB_MENU.map((menu, idx) => (
-        <Link href={menu.pathname}>{menu.label}</Link>
+        <Link href={menu.pathname} className="w-full">
+          {menu.label}
+        </Link>
       ))}
     </div>
   );

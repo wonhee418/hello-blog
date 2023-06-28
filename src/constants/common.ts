@@ -1,19 +1,23 @@
 const GNB_MENU = [
   {
-    label: 'Dev Posts',
+    label: 'Home',
     pathname: '/',
   },
   {
+    label: 'Dev Posts',
+    pathname: '/devPosts',
+  },
+  {
     label: 'Ordinary Life',
-    pathname: '/ordinary-life',
+    pathname: '/ordinaryLife',
   },
   {
     label: 'Resume',
     pathname: '/resume',
   },
   {
-    label: 'Comments',
-    pathname: '/comment',
+    label: 'GuestBook',
+    pathname: '/guestbook',
   },
 ];
 
