@@ -8,11 +8,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        text: '#505c7a',
+        text_white: '#ecf0f9',
         primary: '#f0e4d3',
         sub_n: '#76a1b3',
         sub_p: '#ada8b6',
         sub_t: '#f6f3f0',
         bg_g: "#F9F7F8",
+        opacity_bg: "rgba(255, 255, 255, 0.1)",
       },
       flex: {
         "2": '2 2 0%',
@@ -39,8 +42,13 @@ module.exports = {
         accent: ['inherit', { fontWeight: 500, colors: "red" }],
       },
       boxShadow: {
-        card: '0.3rem 0.3rem 0.6rem #ccc, -0.2rem -0.2rem 0.5rem #fff'
+        card: '0.8rem 0.8rem 1.4rem #c8d0e7, -0.2rem -0.2rem 1.8rem #fff',
+        card_inset: 'inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white)',
+        box: '2px 2px 4px rgba(0, 0, 0, 0.25)',
       },
+      borderColor: {
+        box: '1px solid rgba(255, 255, 255, 0.2)',
+      }
     },
   },
   plugins: [],

@@ -25,7 +25,7 @@ export default function Resume() {
     <Hydrate state={dehydrate(getQueryClient())}>
       <div className="flex pt-12 gap-20 h-[2000px] px-5">
         <div className="flex-1 flex self-start flex-col max-w-[260px] w-full sticky top-10">
-          <div className="flex flex-col gap-10 p-8 shadow-card rounded-3xl">
+          <div className="flex flex-col gap-10 p-8 shadow-card rounded-2xl">
             <div className=" rounded-full overflow-hidden">
               <Image src={profile} alt="#" className=" aspect-square" />
             </div>
@@ -42,7 +42,7 @@ export default function Resume() {
           </div>
         </div>
 
-        <div className="flex-3">
+        <div className="flex-3 shadow-card rounded-2xl p-7">
           <div className=" flex flex-col gap-14">
             <div className="flex flex-col gap-1">
               <h1 className=" text-heading font-bold">FrontEnd Developer</h1>

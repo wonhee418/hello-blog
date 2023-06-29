@@ -9,19 +9,19 @@ export default async function DevPosts() {
   return (
     <>
       <Hydrate state={dehydrate(getQueryClient())}>
-        <div className="flex gap-14 bg-white">
-          <div className="flex flex-col flex-3 gap-6">
-            <div className="py-4 border-b flex gap-2 items-center justify-between">
-              <div className=" flex rounded-full p-2 gap-2">
-                <span className=" border rounded-full py-2 px-4 bg-white">New Feed</span>
-                <span className=" border rounded-full p-2 px-4 text-sub_n">Favorite</span>
-                <span className=" border rounded-full p-2 px-4 text-sub_n">Popular</span>
+        <div className="flex gap-14 py-5">
+          <div className="flex flex-col flex-3 gap-10">
+            <div className="py-4 flex gap-2 items-center justify-between">
+              <div className=" flex rounded-2xl p-2 gap-2 shadow-card">
+                <span className=" rounded-full py-2 px-4 shadow-card_inset cursor-pointer accent_text">New Feed</span>
+                <span className=" rounded-full p-2 px-4 cursor-pointer">Favorite</span>
+                <span className=" rounded-full p-2 px-4 cursor-pointer">Popular</span>
               </div>
               <div className="">
                 <input
                   type="search"
                   placeholder="Search"
-                  className="py-2 px-4 border border-sub_n rounded-full placeholder:text-sub_n"
+                  className="py-2 px-4 shadow-card_inset bg-transparent rounded-full"
                 />
               </div>
             </div>

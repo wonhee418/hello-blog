@@ -14,16 +14,16 @@ type Post = {
 
 const PostItem: FC<Post> = ({ profileImg, user, createdAt, userInfo, title, desc, thumbnail, href }) => {
   return (
-    <div>
-      <Link href={href} className="item flex gap-10 px-4 pb-6 items-center border-b border-sub_n cursor-pointer">
+    <div className=" shadow-card hover:shadow-card_inset transition-all rounded-2xl p-7">
+      <Link href={href} className="item flex gap-10  items-center cursor-pointer">
         <div className="flex flex-2 flex-col  gap-4">
           <div className="flex flex-col  gap-4">
-            <h1 className=" text-heading overflow-hidden text-ellipsis line-clamp-1">{title}</h1>
+            <h1 className=" text-heading overflow-hidden text-ellipsis line-clamp-1 ">{title}</h1>
             <div className=" text-body overflow-hidden text-ellipsis line-clamp-3 ">{desc}</div>
           </div>
           <div className="flex flex-col">
             <div className="flex items-center gap-3">
-              <div className=" max-w-[30px] rounded-[50px]">
+              <div className=" max-w-[30px] rounded-[50px] overflow-hidden">
                 <img src={profileImg} alt="userprofileImg" />
               </div>
               <div className="info flex flex-col text-detail_s">
