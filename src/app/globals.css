@@ -6,11 +6,10 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  --primary-bg: #ecf0f9;
-  --primary-color: #e4ebf5;
-  --primary-light: #8abdff;
-  --primary: #6d5dfc;
-  --primary-dark: #5b0eeb;
+  --primary: #0697f8;
+  --primary-bg: #fafafa;
+  --primary-light: #2cb4ec;
+  --primary-hard: #1256d7;
   --white: #ffffff;
   --greyLight-1: #e4ebf5;
   --greyLight-2: #c8d0e7;
@@ -30,7 +29,7 @@
 
 body {
   color: var(--basic-color);
-  background: var(--primary-bg);
+  background: #fff;
 }
 
 body::-webkit-scrollbar {
@@ -38,8 +37,8 @@ body::-webkit-scrollbar {
 }
 
 .accent_text {
-  @apply text-[#6d5dfc];
+  @apply text-[var(--primary)];
 }
 .accent_text_b {
-  @apply font-bold text-[#6d5dfc];
+  @apply font-bold text-[var(--primary)];
 }

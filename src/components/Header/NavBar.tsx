@@ -7,6 +7,8 @@ const getPathName = (item: string) => {
   switch (item) {
     case 'Home':
       return '/';
+    case 'Blog':
+      return '/blog';
     case 'Dev Posts':
       return '/devPosts';
     case 'Ordinary Life':
@@ -24,7 +26,7 @@ const NavBar = () => {
   const pathname = usePathname();
   console.log(pathname);
   return (
-    <div className="flex flex-2 items-center justify-center gap-4 text-center">
+    <div className="flex flex-1 items-center justify-center gap-2 text-center">
       {GNB_MENU.map((menu, idx) => (
         <Link
           href={menu.pathname}

@@ -4,12 +4,8 @@ const GNB_MENU = [
     pathname: '/',
   },
   {
-    label: 'Dev Posts',
-    pathname: '/devPosts',
-  },
-  {
-    label: 'Ordinary Life',
-    pathname: '/ordinaryLife',
+    label: 'Blog',
+    pathname: '/blog',
   },
   {
     label: 'Resume',
