@@ -14,7 +14,7 @@ type Post = {
 
 const PostItem: FC<Post> = ({ profileImg, user, createdAt, userInfo, title, desc, thumbnail, href }) => {
   return (
-    <div className=" border rounded-2xl overflow-hidden">
+    <div className=" border rounded-2xl overflow-hidden shadow-card relative top-0 transition-all hover:-top-2">
       <Link href={href} className="item flex flex-col items-center cursor-pointer">
         <div className="thumbnail flex-1">
           <img src={thumbnail} alt="thumbnail" className="aspect-video object-cover" />
@@ -30,6 +30,11 @@ const PostItem: FC<Post> = ({ profileImg, user, createdAt, userInfo, title, desc
               <div>tag2</div>
               <div>tag3</div>
             </div>
+          </div>
+          <div className="flex gap-2">
+            <div>2023/07/21</div>
+            <div>View : 302</div>
+            <div>Like : 32</div>
           </div>
         </div>
       </Link>

@@ -36,7 +36,7 @@ module.exports = {
         accent: ['inherit', { fontWeight: 500, colors: "red" }],
       },
       boxShadow: {
-        card: '0.8rem 0.8rem 1.4rem #c8d0e7, -0.2rem -0.2rem 1.8rem #fff',
+        card: '0 12px 35px 0 rgba(16, 39, 112,.07)',
         card_inset: 'inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white)',
         box: '2px 2px 4px rgba(0, 0, 0, 0.25)',
       },
