@@ -42,6 +42,9 @@ module.exports = {
       },
       borderColor: {
         box: '1px solid rgba(255, 255, 255, 0.2)',
+      },
+      aspectRatio: {
+        '21/9': '21 / 9',
       }
     },
   },

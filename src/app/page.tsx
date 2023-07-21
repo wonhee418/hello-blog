@@ -11,14 +11,33 @@ export default async function Main() {
   return (
     <>
       <Hydrate state={dehydrate(getQueryClient())}>
-        <div className="w-[calc(100vw-40px)] h-[calc(100vh-84px-280px)] relative left-[50%] -translate-x-[calc(50%-20px)]">
+        <div className=" relative aspect-21/9 rounded-3xl overflow-hidden">
           <Image src={MainBg} alt="main_bg_img" className="h-full object-cover" />
-          <div className=" absolute w-full left-0 top-1/4 -translate-y-1/4 flex justify-around">
+          <div className=" absolute w-full left-0 top-0 flex justify-around">
             <div className=" text-white flex flex-col gap-5">
               <div className=" text-heading">안녕하세요 </div>
-              <div>이 블로그는 누구나 정보를 주고받을 수 있는 블로그입니다.</div>
+              <div>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quo, debitis deleniti illum error
+                dicta eius molestiae impedit sit quos eveniet officiis mollitia libero. Culpa, quae vel. Itaque,
+                recusandae et.
+              </div>
             </div>
-            <div></div>
+          </div>
+        </div>
+        <div className=" w-[calc(100%-200px)] ml-auto mr-auto shadow-card rounded-3xl p-8 -translate-y-1/2 bg-white">
+          <div className="font-bold  pb-8">보고싶은 피드를 검색해보세요 🔍</div>
+          <input
+            type="search"
+            placeholder="search"
+            className=" w-full mr-auto ml-auto p-3 rounded-xl outline-none border"
+          />
+        </div>
+        <div className=" text-center">
+          <div className=" text-heading">헬로 블로그에 오신걸 환영해요 </div>
+          <div className=" text-body">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa labore assumenda tempore quibusdam error?
+            Suscipit harum ducimus soluta enim maxime fuga tempora tenetur deserunt impedit! Quasi tenetur maxime omnis
+            quae?
           </div>
         </div>
         <div>
