@@ -42,3 +42,33 @@ body::-webkit-scrollbar {
 .accent_text_b {
   @apply font-bold text-[var(--primary)];
 }
+
+.container_Gird {
+  display: grid;
+  grid-template-columns: minmax(2, 1fr);
+  grid-template-rows: minmax(50px, auto);
+  grid-gap: 30px;
+  grid-template-areas:
+    'a a b c'
+    'a a d e';
+}
+
+.topics_Top01 {
+  grid-area: a;
+}
+
+.topics_Top02 {
+  grid-area: b;
+}
+
+.topics_Top03 {
+  grid-area: c;
+}
+
+.topics_Top04 {
+  grid-area: d;
+}
+
+.topics_Top05 {
+  grid-area: e;
+}

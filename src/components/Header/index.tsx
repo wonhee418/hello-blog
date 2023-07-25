@@ -11,7 +11,7 @@ const Header = () => {
   const [authState, setAuthState] = useState(false);
 
   return (
-    <nav className="flex justify-between py-6 px-6 max-w-screen mr-auto ml-auto">
+    <nav className="flex justify-between py-8 max-w-screen mr-auto ml-auto">
       <div className="flex-1">
         <Image src={Logo} alt="logo_img" width={96} />
       </div>
