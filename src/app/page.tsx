@@ -1,9 +1,6 @@
 import { dehydrate } from '@tanstack/query-core';
 import { Hydrate } from '@tanstack/react-query';
-
 import { getQueryClient } from '@/utils/reactQuery';
-import PostItem from '@/components/PostItem';
-import StandardAside from '@/components/Aside/StandardAside';
 import MainBg from '@/images/mainBg_01.jpg';
 import Image from 'next/image';
 
