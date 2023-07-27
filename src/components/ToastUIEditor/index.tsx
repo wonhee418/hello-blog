@@ -33,6 +33,7 @@ const ToastUIEditor = forwardRef<Editor, TuiEditorWithForwardedRef>(({ initialVa
             if (editorRef.current !== null) {
               const value = editorRef.current.getMarkdown();
               onChange(value);
+              console.log(value);
             }
           },
         },

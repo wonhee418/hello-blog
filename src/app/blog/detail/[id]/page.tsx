@@ -2,9 +2,10 @@ import { dehydrate } from '@tanstack/query-core';
 import { Hydrate } from '@tanstack/react-query';
 
 import { getQueryClient } from '@/utils/reactQuery';
-import DetailAside from '@/components/Aside/DetailAside';
+import DOMPurify from 'dompurify';
 
 export default function Detail() {
+  const sanitizer = DOMPurify.sanitize;
   return (
     <Hydrate state={dehydrate(getQueryClient())}>
       <div className="w-[100vw] relative left-1/2 -translate-x-1/2">
@@ -37,11 +38,7 @@ export default function Detail() {
             </div>
           </div>
 
-          <div id="section01">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum repellat enim fugit officia et esse,
-            provident molestiae cum ducimus nemo illo, ratione facilis doloribus voluptatum error obcaecati dignissimos
-            maiores natus!
-          </div>
+          <div className="markDown_text"></div>
         </div>
       </div>
     </Hydrate>

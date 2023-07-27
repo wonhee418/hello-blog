@@ -2,27 +2,79 @@
 
 import { dehydrate } from '@tanstack/query-core';
 import { Hydrate } from '@tanstack/react-query';
-import dynamic from 'next/dynamic';
 import { getQueryClient } from '@/utils/reactQuery';
-import Editor from '@toast-ui/editor';
 import ToastUIEditor from '@/components/ToastUIEditor';
-import { useState } from 'react';
+import { KeyboardEvent, useState } from 'react';
+import { PrismaClient } from '@prisma/client';
 
 export default function Write() {
   const [markdown, setMarkdown] = useState('');
+  const [title, setTitle] = useState('');
+  const [tag, setTag] = useState('');
+  const [tagList, setTagList] = useState<Array<String>>([]);
+
+  const prisma = new PrismaClient();
 
   const handleChange = (value: string) => {
     setMarkdown(value);
   };
 
+  const addTag = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      setTagList([...tagList, tag]);
+      setTag('');
+    }
+  };
+
+  async function createPost() {
+    const post = await prisma.post.create({
+      data: {
+        title: title,
+        content: markdown,
+      },
+    });
+
+    console.log(post);
+
+    const allPost = await prisma.post.findMany();
+    console.log(allPost);
+  }
+
   return (
     <Hydrate state={dehydrate(getQueryClient())}>
       <div>
-        <div>
-          <input type="text" placeholder="제목을 입력하세요" />
+        <div className=" ml-auto mb-3 border rounded-xl py-2 px-4 max-w-[fit-content]" onClick={() => createPost()}>
+          등록하기
         </div>
-        <div>
-          <input type="text" placeholder="태그를 입력하세요" />
+        <div className="mb-3">
+          <input
+            type="text"
+            placeholder="제목을 입력하세요"
+            className=" outline-none w-full border-b p-3"
+            value={title}
+            onChange={(e) => {
+              setTitle(e.target.value);
+            }}
+          />
+        </div>
+        <div className=" mb-3 ">
+          <input
+            type="text"
+            placeholder="태그를 입력하세요"
+            className=" outline-none w-full border-b p-3"
+            value={tag}
+            onChange={(e) => {
+              setTag(e.target.value);
+            }}
+            onKeyDown={(e) => {
+              addTag(e);
+            }}
+          />
+        </div>
+        <div className="flex mb-3 gap-3">
+          {tagList.map((item) => {
+            return <span className="border rounded-xl p-2">{item}</span>;
+          })}
         </div>
         <ToastUIEditor initialValue="" onChange={handleChange} />
       </div>
