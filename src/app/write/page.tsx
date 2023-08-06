@@ -4,7 +4,7 @@ import { dehydrate } from '@tanstack/query-core';
 import { Hydrate } from '@tanstack/react-query';
 import { getQueryClient } from '@/utils/reactQuery';
 import ToastUIEditor from '@/components/ToastUIEditor';
-import { KeyboardEvent, useState } from 'react';
+import { KeyboardEvent, useEffect, useState } from 'react';
 import { PrismaClient } from '@prisma/client';
 
 export default function Write() {
@@ -12,8 +12,24 @@ export default function Write() {
   const [title, setTitle] = useState('');
   const [tag, setTag] = useState('');
   const [tagList, setTagList] = useState<Array<String>>([]);
+  const [userData, setUserData] = useState(null);
 
-  const prisma = new PrismaClient();
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch('/api/user');
+        const data = await response.json();
+        console.log(data);
+
+        setUsers(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+    fetchData();
+  }, []);
 
   const handleChange = (value: string) => {
     setMarkdown(value);
@@ -26,24 +42,28 @@ export default function Write() {
     }
   };
 
-  async function createPost() {
-    const post = await prisma.post.create({
-      data: {
-        title: title,
-        content: markdown,
-      },
-    });
+  const getUserHandler = () => {
+    // getAllUserData();
+  };
 
-    console.log(post);
+  // async function createPost() {
+  //   const post = await prisma.post.create({
+  //     data: {
+  //       title: title,
+  //       content: markdown,
+  //     },
+  //   });
 
-    const allPost = await prisma.post.findMany();
-    console.log(allPost);
-  }
+  //   console.log(post);
+
+  //   const allPost = await prisma.post.findMany();
+  //   console.log(allPost);
+  // }
 
   return (
     <Hydrate state={dehydrate(getQueryClient())}>
       <div>
-        <div className=" ml-auto mb-3 border rounded-xl py-2 px-4 max-w-[fit-content]" onClick={() => createPost()}>
+        <div className=" ml-auto mb-3 border rounded-xl py-2 px-4 max-w-[fit-content]" onClick={() => getUserHandler()}>
           등록하기
         </div>
         <div className="mb-3">
