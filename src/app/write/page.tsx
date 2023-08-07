@@ -5,25 +5,19 @@ import { Hydrate } from '@tanstack/react-query';
 import { getQueryClient } from '@/utils/reactQuery';
 import ToastUIEditor from '@/components/ToastUIEditor';
 import { KeyboardEvent, useEffect, useState } from 'react';
-import { PrismaClient } from '@prisma/client';
 
 export default function Write() {
   const [markdown, setMarkdown] = useState('');
-  const [title, setTitle] = useState('');
+  const [contentTitle, setContentTitle] = useState('');
   const [tag, setTag] = useState('');
   const [tagList, setTagList] = useState<Array<String>>([]);
-  const [userData, setUserData] = useState(null);
-
-  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('/api/user');
+        const response = await fetch('/api/post');
         const data = await response.json();
         console.log(data);
-
-        setUsers(data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -42,28 +36,36 @@ export default function Write() {
     }
   };
 
-  const getUserHandler = () => {
-    // getAllUserData();
+  const createPostHandler = async () => {
+    const title = contentTitle;
+    const content = markdown;
+    const contentData = {
+      title,
+      content,
+    };
+    try {
+      const response = await fetch('/api/post', {
+        method: 'POST',
+        cache: 'no-cache',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(contentData),
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   };
-
-  // async function createPost() {
-  //   const post = await prisma.post.create({
-  //     data: {
-  //       title: title,
-  //       content: markdown,
-  //     },
-  //   });
-
-  //   console.log(post);
-
-  //   const allPost = await prisma.post.findMany();
-  //   console.log(allPost);
-  // }
 
   return (
     <Hydrate state={dehydrate(getQueryClient())}>
       <div>
-        <div className=" ml-auto mb-3 border rounded-xl py-2 px-4 max-w-[fit-content]" onClick={() => getUserHandler()}>
+        <div
+          className=" ml-auto mb-3 border rounded-xl py-2 px-4 max-w-[fit-content]"
+          onClick={() => createPostHandler()}
+        >
           등록하기
         </div>
         <div className="mb-3">
@@ -71,9 +73,9 @@ export default function Write() {
             type="text"
             placeholder="제목을 입력하세요"
             className=" outline-none w-full border-b p-3"
-            value={title}
+            value={contentTitle}
             onChange={(e) => {
-              setTitle(e.target.value);
+              setContentTitle(e.target.value);
             }}
           />
         </div>

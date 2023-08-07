@@ -1,5 +1,5 @@
 type PostType = {
-  id: number;
+  id: string;
   title: string;
   tags: TagType[];
   content: string;
@@ -10,7 +10,7 @@ type PostType = {
 };
 
 type TagType = {
-  id: number;
+  id: string;
   name: string;
   posts: PostType[];
 };

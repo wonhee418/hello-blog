@@ -2,7 +2,13 @@ import React, { forwardRef, useImperativeHandle, useRef, useEffect } from 'react
 import '@toast-ui/editor/dist/toastui-editor.css';
 // import '@toast-ui/editor/dist/theme/toastui-editor-dark.css';
 import { Editor } from '@toast-ui/editor';
-
+import Prism from 'prismjs';
+import 'prismjs/themes/prism.css';
+import '@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.css';
+import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight';
+import 'tui-color-picker/dist/tui-color-picker.css';
+import '@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-syntax.css';
+import colorSyntax from '@toast-ui/editor-plugin-color-syntax';
 type TuiEditorWithForwardedRef = {
   initialValue: string;
   onChange(value: string): void;
@@ -25,15 +31,16 @@ const ToastUIEditor = forwardRef<Editor, TuiEditorWithForwardedRef>(({ initialVa
           ['code', 'codeblock'],
           ['scrollSync'],
         ],
+        plugins: [[codeSyntaxHighlight, { highlighter: Prism }], colorSyntax],
         initialValue,
         // theme: 'dark',
         height: '80vh',
         events: {
           change: () => {
             if (editorRef.current !== null) {
-              const value = editorRef.current.getMarkdown();
-              onChange(value);
+              const value = editorRef.current.getHTML().toString();
               console.log(value);
+              onChange(value);
             }
           },
         },
