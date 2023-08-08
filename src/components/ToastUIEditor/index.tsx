@@ -38,7 +38,7 @@ const ToastUIEditor = forwardRef<Editor, TuiEditorWithForwardedRef>(({ initialVa
         events: {
           change: () => {
             if (editorRef.current !== null) {
-              const value = editorRef.current.getHTML().toString();
+              const value = editorRef.current.getHTML();
               console.log(value);
               onChange(value);
             }

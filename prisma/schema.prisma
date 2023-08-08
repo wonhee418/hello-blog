@@ -21,7 +21,7 @@ model Post {
   id        Int     @id @default(autoincrement())
   title     String
   tags   Tag[]
-  content   String?
+  content   String @db.VarChar(10000)
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @default(now())
   userId       String?
