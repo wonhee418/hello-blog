@@ -1,7 +1,7 @@
 type PostType = {
   id: string;
   title: string;
-  tags: TagType[];
+  tags: string[];
   content: string;
   createAt: string;
   updatedAt: string;
@@ -12,5 +12,4 @@ type PostType = {
 type TagType = {
   id: string;
   name: string;
-  posts: PostType[];
 };

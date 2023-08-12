@@ -39,12 +39,14 @@ export default function Write() {
   const createPostHandler = async () => {
     const title = contentTitle;
     const content = markdown;
+    const tags = tag;
     const contentData = {
       title,
       content,
+      tags,
     };
     try {
-      const response = await fetch('/api/post', {
+      const response = await fetch('/api/post/', {
         method: 'POST',
         cache: 'no-cache',
         headers: {

@@ -13,19 +13,19 @@ export default function Detail() {
   const sanitizer = DOMPurify.sanitize;
   const [content, setContent] = useState<PostType>();
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch('/api/post?id=4');
-        const data = await response.json();
-        console.log(data);
-        setContent(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    }
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     try {
+  //       const response = await fetch('/api/post/?id=4');
+  //       const data = await response.json();
+  //       console.log(data);
+  //       setContent(data);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   }
+  //   fetchData();
+  // }, []);
 
   return (
     <Hydrate state={dehydrate(getQueryClient())}>

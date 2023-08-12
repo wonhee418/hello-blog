@@ -20,7 +20,7 @@ model User {
 model Post {
   id        Int     @id @default(autoincrement())
   title     String
-  tags   Tag[]
+  tags   Tags[]
   content   String @db.VarChar(10000)
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @default(now())
@@ -28,8 +28,8 @@ model Post {
   user         User[]
 }
 
-model Tag {
+model Tags {
   id     Int    @id @default(autoincrement())
-  name   String @unique
+  name   String 
   posts  Post[]
 }
