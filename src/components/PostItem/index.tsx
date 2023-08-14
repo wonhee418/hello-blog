@@ -15,7 +15,7 @@ type Post = {
 const PostItem: FC<Post> = ({ profileImg, user, createdAt, userInfo, title, desc, thumbnail, href }) => {
   return (
     <div className=" border rounded-2xl overflow-hidden shadow-card relative top-0 transition-all hover:-top-2">
-      <Link href={href} className="item flex flex-col items-center cursor-pointer">
+      <Link href={`/blog/detail/${href}`} className="item flex flex-col items-center cursor-pointer">
         <div className="thumbnail flex-1">
           <img src={thumbnail} alt="thumbnail" className="aspect-video object-cover" />
         </div>

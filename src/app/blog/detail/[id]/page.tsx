@@ -4,28 +4,26 @@ import { dehydrate } from '@tanstack/query-core';
 import { Hydrate } from '@tanstack/react-query';
 
 import { getQueryClient } from '@/utils/reactQuery';
-import DOMPurify from 'dompurify';
 import { useEffect, useState } from 'react';
 import '@toast-ui/editor/dist/toastui-editor-viewer.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import { Viewer } from '@toast-ui/react-editor';
-export default function Detail() {
-  const sanitizer = DOMPurify.sanitize;
+
+export default function Detail({ params: { id } }: { params: { id: string } }) {
   const [content, setContent] = useState<PostType>();
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const response = await fetch('/api/post/?id=4');
-  //       const data = await response.json();
-  //       console.log(data);
-  //       setContent(data);
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //     }
-  //   }
-  //   fetchData();
-  // }, []);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch(`/api/post/detail/?id=${id}`);
+        const data = await response.json();
+        setContent(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+    fetchData();
+  }, []);
 
   return (
     <Hydrate state={dehydrate(getQueryClient())}>

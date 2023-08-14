@@ -12,19 +12,6 @@ export default function Write() {
   const [tag, setTag] = useState('');
   const [tagList, setTagList] = useState<Array<String>>([]);
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch('/api/post');
-        const data = await response.json();
-        console.log(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    }
-    fetchData();
-  }, []);
-
   const handleChange = (value: string) => {
     setMarkdown(value);
   };

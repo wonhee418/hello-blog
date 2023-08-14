@@ -1,11 +1,15 @@
-// import { GET as getUser } from '@/app/api/user/route';
-// import { useQuery } from '@tanstack/react-query';
+import { getPost } from '@/libs/api/post';
+import { useQuery } from '@tanstack/react-query';
 
-// export const useGetUser = () => {
-//   const { status, data, error } = useQuery({
-//     queryKey: ['assemble', '모임'],
-//     queryFn: getUser,
-//   });
+export const useGetPost = () => {
+  const { status, data, error } = useQuery<PostType[]>({
+    queryKey: ['post', '1'],
+    queryFn: getPost,
+  });
 
-//   return { status, data, error };
-// };
+  return { data, status, error } as {
+    data: PostType[];
+    status: 'idle' | 'loading' | 'error' | 'success';
+    error: any;
+  };
+};
