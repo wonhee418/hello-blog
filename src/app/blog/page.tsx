@@ -52,17 +52,12 @@ export default function DevPosts() {
               return (
                 <PostItem
                   key={item.id}
-                  profileImg={
-                    'https://static.vecteezy.com/system/resources/previews/005/544/718/original/profile-icon-design-free-vector.jpg'
-                  }
-                  user={'name'}
-                  createdAt={item.createAt}
-                  userInfo={'userinfo'}
+                  updatedAt={item.updatedAt}
                   title={item.title}
                   thumbnail={
                     'https://velog.velcdn.com/images/1106laura/post/e2db6999-4b1d-4ee8-ab18-31a2f8ca42fe/image.png'
                   }
-                  href={`${item.id}`}
+                  href={item.id}
                 />
               );
             })}
