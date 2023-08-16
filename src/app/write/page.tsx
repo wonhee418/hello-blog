@@ -9,6 +9,7 @@ import { KeyboardEvent, useEffect, useState } from 'react';
 export default function Write() {
   const [markdown, setMarkdown] = useState('');
   const [contentTitle, setContentTitle] = useState('');
+  const [contentThumbnail, setContentThumbnail] = useState('');
   const [tag, setTag] = useState('');
   const [tagList, setTagList] = useState<Array<String>>([]);
 
@@ -16,24 +17,24 @@ export default function Write() {
     setMarkdown(value);
   };
 
-  const addTag = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      setTagList([...tagList, tag]);
-      setTag('');
-    }
-  };
+  // const addTag = (e: KeyboardEvent<HTMLInputElement>) => {
+  //   if (e.key === 'Enter') {
+  //     setTagList([...tagList, tag]);
+  //     setTag('');
+  //   }
+  // };
 
   const createPostHandler = async () => {
     const title = contentTitle;
     const content = markdown;
-    const tags = tag;
+    const thumbnail = contentThumbnail;
     const contentData = {
       title,
       content,
-      tags,
+      thumbnail,
     };
     try {
-      const response = await fetch('/api/post/', {
+      const response = await fetch('/api/post', {
         method: 'POST',
         cache: 'no-cache',
         headers: {
@@ -68,7 +69,7 @@ export default function Write() {
             }}
           />
         </div>
-        <div className=" mb-3 ">
+        {/* <div className=" mb-3 ">
           <input
             type="text"
             placeholder="태그를 입력하세요"
@@ -79,6 +80,17 @@ export default function Write() {
             }}
             onKeyDown={(e) => {
               addTag(e);
+            }}
+          />
+        </div> */}
+        <div className="mb-3">
+          <input
+            type="text"
+            placeholder="사용할 썸네일 링크를 입력하세요"
+            className=" outline-none w-full border-b p-3"
+            value={contentThumbnail}
+            onChange={(e) => {
+              setContentThumbnail(e.target.value);
             }}
           />
         </div>

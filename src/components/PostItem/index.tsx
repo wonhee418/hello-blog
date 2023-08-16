@@ -13,7 +13,15 @@ const PostItem: FC<Post> = ({ updatedAt, title, thumbnail, href }) => {
     <div className=" border rounded-2xl overflow-hidden shadow-card relative top-0 transition-all hover:-top-2">
       <Link href={`/blog/detail/${href}`} className="item flex flex-col items-center cursor-pointer">
         <div className="thumbnail flex-1">
-          <img src={thumbnail} alt="thumbnail" className="aspect-video object-cover" />
+          <img
+            src={
+              thumbnail
+                ? thumbnail
+                : 'https://velog.velcdn.com/images/gene028/post/231f50d1-9a85-4068-b616-aa031597a73d/image.png'
+            }
+            alt="thumbnail"
+            className="aspect-video object-cover"
+          />
         </div>
         <div className="flex flex-2 flex-col gap-4 p-4 w-full">
           <div className="flex flex-col gap-2">

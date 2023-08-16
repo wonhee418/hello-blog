@@ -4,23 +4,10 @@ import PostItem from '@/components/PostItem';
 import Image from 'next/image';
 import BannerImg from '@/images/banner_02.jpg';
 import { useEffect, useState } from 'react';
+import { useGetPost } from '@/hooks/queries';
 
 export default function DevPosts() {
-  const [posts, setPosts] = useState<PostType[]>([]);
-
-  console.log(posts);
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch(`/api/post/`);
-        const data = await response.json();
-        setPosts(data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    }
-    fetchData();
-  }, []);
+  const { data: posts = [], status, error } = useGetPost();
 
   return (
     <>
@@ -48,19 +35,18 @@ export default function DevPosts() {
             </div>
           </div>
           <div className="grid grid-cols-3 gap-6">
-            {posts.map((item) => {
-              return (
-                <PostItem
-                  key={item.id}
-                  updatedAt={item.updatedAt}
-                  title={item.title}
-                  thumbnail={
-                    'https://velog.velcdn.com/images/1106laura/post/e2db6999-4b1d-4ee8-ab18-31a2f8ca42fe/image.png'
-                  }
-                  href={item.id}
-                />
-              );
-            })}
+            {posts &&
+              posts.map((item) => {
+                return (
+                  <PostItem
+                    key={item.id}
+                    updatedAt={item.updatedAt}
+                    title={item.title}
+                    thumbnail={item.thumbnail}
+                    href={item.id}
+                  />
+                );
+              })}
           </div>
         </div>
       </div>

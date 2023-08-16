@@ -10,40 +10,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id        String       @id @default(uuid())
-  email     String       @unique
-  name      String?
-  posts     Post[]
-  comments  Comment[]
-}
 
 model Post {
   id        Int       @id @default(autoincrement())
   title     String
-  tags      Tags[]
   content   String    @db.VarChar(10000)
   createdAt DateTime  @default(now())
   updatedAt DateTime  @default(now())
-  userId    String?
-  user      User?     @relation(fields: [userId], references: [id])
-  comments  Comment[]
-  thumbnail String @default("https://velog.velcdn.com/images/gene028/post/231f50d1-9a85-4068-b616-aa031597a73d/image.png")
-}
-
-model Tags {
-  id    Int    @id @default(autoincrement())
-  name  String
-  posts Post[]
-}
-
-model Comment {
-  id        Int      @id @default(autoincrement())
-  userId    String
-  user      User     @relation(fields: [userId], references: [id], map: "CustomConstraintName")
-  postId    Int
-  post      Post     @relation(fields: [postId], references: [id])
-  content   String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  thumbnail String    @db.VarChar(500) @default("https://velog.velcdn.com/images/gene028/post/231f50d1-9a85-4068-b616-aa031597a73d/image.png")
 }

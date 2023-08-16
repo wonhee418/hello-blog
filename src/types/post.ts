@@ -1,15 +1,8 @@
 type PostType = {
   id: string;
   title: string;
-  tags: string[];
   content: string;
+  thumbnail: string;
   createAt: string;
   updatedAt: string;
-  userId: number;
-  user: UserType;
-};
-
-type TagType = {
-  id: string;
-  name: string;
 };
