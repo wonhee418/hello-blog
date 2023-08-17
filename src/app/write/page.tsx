@@ -17,13 +17,6 @@ export default function Write() {
     setMarkdown(value);
   };
 
-  // const addTag = (e: KeyboardEvent<HTMLInputElement>) => {
-  //   if (e.key === 'Enter') {
-  //     setTagList([...tagList, tag]);
-  //     setTag('');
-  //   }
-  // };
-
   const createPostHandler = async () => {
     const title = contentTitle;
     const content = markdown;

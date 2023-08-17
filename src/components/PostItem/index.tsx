@@ -9,6 +9,10 @@ type Post = {
 };
 
 const PostItem: FC<Post> = ({ updatedAt, title, thumbnail, href }) => {
+  const year = new Date(updatedAt).getFullYear().toString();
+  const month = (new Date(updatedAt).getMonth() + 1).toString();
+  const date = new Date(updatedAt).getDate().toString();
+
   return (
     <div className=" border rounded-2xl overflow-hidden shadow-card relative top-0 transition-all hover:-top-2">
       <Link href={`/blog/detail/${href}`} className="item flex flex-col items-center cursor-pointer">
@@ -26,19 +30,9 @@ const PostItem: FC<Post> = ({ updatedAt, title, thumbnail, href }) => {
         <div className="flex flex-2 flex-col gap-4 p-4 w-full">
           <div className="flex flex-col gap-2">
             <h1 className=" text-heading_sub overflow-hidden text-ellipsis line-clamp-1 ">{title}</h1>
-            {/* <div className=" text-body overflow-hidden text-ellipsis line-clamp-2 ">{desc}</div> */}
-          </div>
-          <div className="flex flex-col">
-            <div className="info flex gap-2 text-detail_s">
-              <div>tag1</div>
-              <div>tag2</div>
-              <div>tag3</div>
-            </div>
           </div>
           <div className="flex gap-2">
-            <div>2023/07/21</div>
-            <div>View : 302</div>
-            <div>Like : 32</div>
+            <div>{`${year}-${month.padStart(2, '0')}-${date}`}</div>
           </div>
         </div>
       </Link>

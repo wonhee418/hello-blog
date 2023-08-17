@@ -4,3 +4,7 @@ type UserType = {
   name: string;
   post: PostType[];
 };
+
+type UserIPType = {
+  ip: string;
+};

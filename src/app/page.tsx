@@ -1,10 +1,20 @@
+'use client';
+
 import { dehydrate } from '@tanstack/query-core';
 import { Hydrate } from '@tanstack/react-query';
 import { getQueryClient } from '@/utils/reactQuery';
 import MainBg from '@/images/mainBg_01.jpg';
 import Image from 'next/image';
+import { useGetPost } from '@/hooks/queries';
 
-export default async function Main() {
+export default function Main() {
+  const { data: posts = [], status, error } = useGetPost();
+
+  const blogCreationDate = Number(new Date('2023/08/18'));
+  const currentDate = Number(new Date());
+  const timeDifference = currentDate - blogCreationDate;
+  const dayDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
   return (
     <>
       <Hydrate state={dehydrate(getQueryClient())}>
@@ -46,19 +56,19 @@ export default async function Main() {
           <div className="flex flex-wrap gap-[30px] justify-between">
             <div className="border rounded-md p-6 w-[calc(25%-30px)] flex flex-col justify-center items-center gap-3">
               <span className=" text-heading_sub font-medium">블로그 개설일</span>
-              <span className=" text-body02 font-bold">2일</span>
+              <span className=" text-body02 font-bold">{dayDifference}</span>
             </div>
             <div className="border rounded-md p-6 w-[calc(25%-30px)] flex flex-col justify-center items-center gap-3">
               <span className=" text-heading_sub font-medium">오늘 방문자</span>
-              <span className=" text-body02 font-bold">2일</span>
+              <span className=" text-body02 font-bold">0명</span>
             </div>
             <div className="border rounded-md p-6 w-[calc(25%-30px)] flex flex-col justify-center items-center gap-3">
               <span className=" text-heading_sub font-medium">총 방문자</span>
-              <span className=" text-body02 font-bold">2일</span>
+              <span className=" text-body02 font-bold">0명</span>
             </div>
             <div className="border rounded-md p-6 w-[calc(25%-30px)] flex flex-col justify-center items-center gap-3">
               <span className=" text-heading_sub font-medium">뭐하지 ?</span>
-              <span className=" text-body02 font-bold">2일</span>
+              <span className=" text-body02 font-bold">??</span>
             </div>
           </div>
         </div>
@@ -66,87 +76,27 @@ export default async function Main() {
         <div className="flex flex-col gap-6 pb-6">
           <h1 className=" text-heading">Blog Topics</h1>
           <div className="container_Gird">
-            <div className="border rounded-xl overflow-hidden relative aspect-[6/9] topics_Top01">
-              <img
-                src="https://images.unsplash.com/photo-1565312559326-5994b95797c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=627&q=80"
-                alt="adads"
-              />
-              <div className=" absolute bottom-0 text-white bg-[rgba(0,0,0,0.4)] p-3 w-full flex flex-col topics_Top02">
-                <span className=" text-body02 font-bold line-clamp-2">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                </span>
-                <span className="pt-2">2023/05/20</span>
-              </div>
-            </div>
-            <div className="border rounded-xl overflow-hidden relative aspect-[6/9] topics_Top02">
-              <img
-                src="https://images.unsplash.com/photo-1565312559326-5994b95797c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=627&q=80"
-                alt="adads"
-                className=" object-cover"
-              />
-              <div className=" absolute bottom-0 text-white bg-[rgba(0,0,0,0.4)] p-3 w-full flex flex-col topics_Top04">
-                <span className=" text-body02 font-bold line-clamp-2">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                </span>
-                <span className="pt-2">2023/05/20</span>
-              </div>
-            </div>
-            <div className="border rounded-xl overflow-hidden relative aspect-[6/9] topics_Top03">
-              <img
-                src="https://images.unsplash.com/photo-1689101298752-886c970ff200?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
-                alt="adads"
-                className=" object-cover"
-              />
-              <div className=" absolute bottom-0 text-white bg-[rgba(0,0,0,0.4)] p-3 w-full flex flex-col">
-                <span className=" text-body02 font-bold line-clamp-2">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                </span>
-                <span className="pt-2">2023/05/20</span>
-              </div>
-            </div>
-            <div className="border rounded-xl overflow-hidden relative aspect-[6/9] topics_Top04">
-              <img
-                src="https://images.unsplash.com/photo-1565312559326-5994b95797c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=627&q=80"
-                alt="adads"
-              />
-              <div className=" absolute bottom-0 text-white bg-[rgba(0,0,0,0.4)] p-3 w-full flex flex-col">
-                <span className=" text-body02 font-bold line-clamp-2">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                </span>
-                <span className="pt-2">2023/05/20</span>
-              </div>
-            </div>
-            <div className="border rounded-xl overflow-hidden relative aspect-[6/9] topics_Top05">
-              <img
-                src="https://images.unsplash.com/photo-1565312559326-5994b95797c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=627&q=80"
-                alt="adads"
-              />
-              <div className=" absolute bottom-0 text-white bg-[rgba(0,0,0,0.4)] p-3 w-full flex flex-col">
-                <span className=" text-body02 font-bold line-clamp-2">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                </span>
-                <span className="pt-2">2023/05/20</span>
-              </div>
-            </div>
+            {posts &&
+              posts.map((item, idx) => {
+                return (
+                  <div className={`border rounded-xl overflow-hidden relative aspect-[6/9] topics_Top0${idx + 1}`}>
+                    <img
+                      src="https://images.unsplash.com/photo-1565312559326-5994b95797c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=627&q=80"
+                      alt="adads"
+                    />
+                    <div className=" absolute bottom-0 text-white bg-[rgba(0,0,0,0.4)] p-3 w-full flex flex-col topics_Top02">
+                      <span className=" text-body02 font-bold line-clamp-2">{item.title}</span>
+                      <span className="pt-2">{item.updatedAt}</span>
+                    </div>
+                  </div>
+                );
+              })}
           </div>
         </div>
 
         <div>
           <h1 className=" text-heading">Coments</h1>
-          <div className="flex flex-wrap gap-[30px] justify-between">
-            <div className="border rounded-md p-4 w-[calc(25%-30px)]">
-              <span>블로그 개설일</span>
-            </div>
-            <div className="border rounded-md p-4 w-[calc(25%-30px)]">
-              <span>오늘 방문자</span>
-            </div>
-            <div className="border rounded-md p-4 w-[calc(25%-30px)]">
-              <span>총 방문자</span>
-            </div>
-            <div className="border rounded-md p-4 w-[calc(25%-30px)]">
-              <span>뭐하지 ?</span>
-            </div>
-          </div>
+          <div className="flex flex-wrap gap-[30px] justify-between"></div>
         </div>
       </Hydrate>
     </>
