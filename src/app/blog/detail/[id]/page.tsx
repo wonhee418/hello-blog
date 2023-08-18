@@ -16,7 +16,15 @@ export default function Detail({ params: { id } }: { params: { id: string } }) {
       <div className="w-[100vw] relative left-1/2 -translate-x-1/2">
         <div className="w-full h-[50vh] absolute bg-black opacity-60"> </div>
         <div className="w-full h-[50vh]">
-          <img src={post?.thumbnail} alt="thumbnail" className=" object-cover w-full h-[50vh]" />
+          <img
+            src={
+              post?.thumbnail
+                ? post.thumbnail
+                : 'https://velog.velcdn.com/images/gene028/post/231f50d1-9a85-4068-b616-aa031597a73d/image.png'
+            }
+            alt="thumbnail"
+            className=" object-cover w-full h-[50vh]"
+          />
         </div>
         <h1 className=" absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-heading pb-4 text-white">
           {post?.title}

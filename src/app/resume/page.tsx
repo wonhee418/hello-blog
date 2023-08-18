@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 import profile from '@/images/vercel.svg';
 import Image from 'next/image';
+import WorkExperienceItem from '@/components/Resume/WorkExperienceItem';
 
 type info = {
   heading: string;
@@ -20,6 +21,12 @@ export default function Resume() {
     { heading: '📞 Phone', desc: '010-9102-3802' },
     { heading: '😺 Github', desc: 'wonhee418', href: "'https://github.com/wonhee418" },
   ];
+
+  const stack = {
+    language: ['Javascript', 'Typescript'],
+    style: ['TailwindCSS'],
+    libraryAndFramework: ['React', 'Next.js', 'Recoil', 'React-query', 'jQuery'],
+  };
 
   return (
     <Hydrate state={dehydrate(getQueryClient())}>
@@ -76,12 +83,55 @@ export default function Resume() {
             </div>
             <div>
               <h2 className="text-heading_sub border-b-2 pb-2">🛠️ Tech Stack - 기술 스택</h2>
+              <div className="flex flex-col pt-8">
+                <div className=" flex border-t items-center">
+                  <div className="flex-1 border-r-2 py-[16px] px-[10px] border-gray-100">Stack</div>
+                  <div className="flex-2 py-[16px] px-[10px]">Name</div>
+                </div>
+                <div className=" flex border-t items-center">
+                  <div className="flex-1 border-r-2 py-[16px] px-[10px] border-gray-100">Language</div>
+                  <div className="flex-2 flex gap-3 px-[10px]">
+                    {stack.language.map((item) => {
+                      return (
+                        <span className="p-[8px] text-detail_s bg-primary text-white rounded-lg leading-none">
+                          {item}
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div className=" flex border-t items-center">
+                  <div className="flex-1 border-r-2 py-[16px] px-[10px] border-gray-100 p-2">Style</div>
+                  <div className="flex-2 flex gap-3 px-[10px]">
+                    {stack.style.map((item) => {
+                      return (
+                        <span className="p-[8px] text-detail_s bg-primary text-white rounded-lg leading-none">
+                          {item}
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div className=" flex border-t items-center">
+                  <div className="flex-1 border-r-2 py-[16px] px-[10px] border-gray-100 p-2">Library & Framework</div>
+                  <div className="flex-2 flex gap-3 py-[10px] px-[10px] flex-wrap">
+                    {stack.libraryAndFramework.map((item) => {
+                      return (
+                        <span className="p-[8px] text-detail_s bg-primary text-white rounded-lg leading-none">
+                          {item}
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
             </div>
             <div>
               <h2 className="text-heading_sub border-b-2 pb-2">📂 Projects - 프로젝트</h2>
             </div>
             <div>
               <h2 className="text-heading_sub border-b-2 pb-2">📋 경력 - Work Experience</h2>
+              <WorkExperienceItem />
             </div>
             <div>
               <h2 className="text-heading_sub border-b-2 pb-2">🎓 교육 - Education</h2>

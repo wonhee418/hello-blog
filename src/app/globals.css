@@ -42,6 +42,9 @@ body::-webkit-scrollbar {
 .accent_text_b {
   @apply font-bold text-[var(--primary)];
 }
+.list_style {
+  @apply pl-4 pb-2 relative before:content-[''] before:inline-block before:absolute before:w-1.5 before:h-1.5 before:bg-primary before:rounded-full before:top-[12px] before:left-0 before:-translate-y-1/2;
+}
 
 .container_Gird {
   display: grid;

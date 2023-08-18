@@ -31,7 +31,7 @@ module.exports = {
         heading: ['30px', { fontWeight: 700, lineHeight: '1.3' }],
         heading_sub: ['24px', { fontWeight: 700, lineHeight: '1.3' }],
         body: ['16px', { fontWeight: 400, lineHeight: '1.3' }],
-        body02: ['20px', { fontWeight: 500, lineHeight: '1.3' }],
+        body02: ['20px', { fontWeight: 700, lineHeight: '1.3' }],
         detail: ['16px', { fontWeight: 300, lineHeight: '1.3' }],
         detail_s: ['14px', { fontWeight: 400, lineHeight: '1.3' }],
         accent: ['inherit', { fontWeight: 500, colors: "red" }],
