@@ -153,6 +153,7 @@ export default function Resume() {
           </div>
           <div>
             <h2 className="text-heading_sub border-b-2 pb-2">📂 Projects - 프로젝트</h2>
+            <div className="pt-8">준비중입니다.</div>
           </div>
           <div>
             <h2 className="text-heading_sub border-b-2 pb-2">📋 경력 - Work Experience</h2>
