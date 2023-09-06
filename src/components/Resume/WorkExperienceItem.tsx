@@ -45,11 +45,11 @@ const WorkExperienceItem = () => {
       {experineceItem.map((item) => {
         return (
           <>
-            <div className="pb-4 border-b flex flex-col gap-2">
+            <div className="pb-4 border-b flex flex-col gap-1">
               <h2 className=" text-body02">{item.company}</h2>
               <h3>{item.companyInfo}</h3>
             </div>
-            <div className="flex py-5">
+            <div className="flex py-7">
               <div className="flex-1">
                 <p className="text-body pb-1 font-medium">{item.position}</p>
                 <p className=" text-detail_s">{item.positionEng}</p>
